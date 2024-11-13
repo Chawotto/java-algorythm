@@ -1,3 +1,5 @@
+package org.example;
+
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.logging.Level;
