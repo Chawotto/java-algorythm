@@ -16,6 +16,8 @@
         <!-- Добавьте другие модули, если нужно -->
     </modules>
 <properties>
+  <maven.compiler.source>17</maven.compiler.source> <!-- или замените на нужную версию, например 11 -->
+  <maven.compiler.target>17</maven.compiler.target>
   <sonar.organization>chawotto</sonar.organization>
   <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 </properties>
