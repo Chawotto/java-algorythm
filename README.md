@@ -4,3 +4,5 @@
 
 # java-algorythm
 My Java algorythm lessons tasks.
+
+Cсылка на Sonar: https://sonarcloud.io/summary/new_code?id=Chawotto_java-algorythm
