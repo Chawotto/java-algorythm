@@ -46,7 +46,7 @@
 
 Расчетное время: 0.369 ч. Время выполнения: 0.359 ч.
 
-Ссылка на директорию с кодом:
+Ссылка на директорию с кодом: [ Применение_сортировок/1/src/main/java/org/example](https://github.com/Chawotto/java-algorythm/tree/d36a67b86871340c5ec53c91552669c5fa2d7296/%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5_%D1%81%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA/1/src/main/java/org/example)
 
 Задача 2 (2.5.16)
 
@@ -55,7 +55,7 @@
 
 Расчетное время: 0.336 ч. Время выполнения: 0.328 ч. 
 
-Ссылка на директорию с кодом:
+Ссылка на директорию с кодом: [ Применение_сортировок/2/src/main/java/org/example](https://github.com/Chawotto/java-algorythm/tree/d36a67b86871340c5ec53c91552669c5fa2d7296/%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5_%D1%81%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA/2/src/main/java/org/example)
 
 Задача 3 (2.5.21)
 
@@ -63,7 +63,7 @@
 
 Расчетное время: 0.427 ч. Время выполнения: 0.398 ч. 
 
-Ссылка на директорию с кодом:
+Ссылка на директорию с кодом: [ Применение_сортировок/3/src/main/java/org/example](https://github.com/Chawotto/java-algorythm/tree/d36a67b86871340c5ec53c91552669c5fa2d7296/%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5_%D1%81%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA/3/src/main/java/org/example)
 
 Задача 4 (2.5.29)
 
@@ -72,7 +72,7 @@
 
 Расчетное время: 0.727 ч. Время выполнения: 0.712 ч. 
 
-Ссылка на директорию с кодом:
+Ссылка на директорию с кодом: [ Применение_сортировок/4/src/main/java/org/example](https://github.com/Chawotto/java-algorythm/tree/d36a67b86871340c5ec53c91552669c5fa2d7296/%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5_%D1%81%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA/4/src/main/java/org/example)
 
 Расчетное время для раздела: 1.859 ч. Время выполнения раздела: 1.797 ч.
 
