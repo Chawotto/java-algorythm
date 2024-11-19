@@ -9,7 +9,7 @@
 
 Расчетное время: 0.091 ч. Время выполнения: 0.081 ч. 
 
-Ссылка на директорию с кодом:[ Очереди_стеки_контейнеры/1/src/main/java/org/example](https://github.com/Chawotto/java-algorythm/tree/103404665159449661dd370bf0768b717ba5a987/%D0%9E%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8_%D1%81%D1%82%D0%B5%D0%BA%D0%B8_%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%B9%D0%BD%D0%B5%D1%80%D1%8B/1/src/main/java/org/example)
+Ссылка на директорию с кодом: [ Очереди_стеки_контейнеры/1/src/main/java/org/example](https://github.com/Chawotto/java-algorythm/tree/103404665159449661dd370bf0768b717ba5a987/%D0%9E%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8_%D1%81%D1%82%D0%B5%D0%BA%D0%B8_%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%B9%D0%BD%D0%B5%D1%80%D1%8B/1/src/main/java/org/example)
 
 Задача 2 (1.3.14)
 Разработайте класс ResizingArrayQueueOfStrings, который реализует обстракцию очереди с массивом фиксированного размера, а потом добавьте в полученную реализацию изменение размера массива, чтобы снять ограничение на размер. 
