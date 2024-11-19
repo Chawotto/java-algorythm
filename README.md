@@ -16,7 +16,7 @@
 
 Расчетное время: 0.241 ч. Время выполнения: 0.2 ч.
 
-Ссылка на директорию с кодом: 
+Ссылка на директорию с кодом: [ Очереди_стеки_контейнеры/2/src/main/java/org/example](https://github.com/Chawotto/java-algorythm/tree/103404665159449661dd370bf0768b717ba5a987/%D0%9E%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8_%D1%81%D1%82%D0%B5%D0%BA%D0%B8_%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%B9%D0%BD%D0%B5%D1%80%D1%8B/2/src/main/java/org/example)
 
 Задача 3 (1.3.31)
 
@@ -24,7 +24,7 @@
 
 Время выполнения: 0.333 ч. Расчетное время: 0.430 ч.
 
-Ссылка на директорию с кодом:
+Ссылка на директорию с кодом: [ Очереди_стеки_контейнеры/3/src/main/java/org/example](https://github.com/Chawotto/java-algorythm/tree/103404665159449661dd370bf0768b717ba5a987/%D0%9E%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8_%D1%81%D1%82%D0%B5%D0%BA%D0%B8_%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%B9%D0%BD%D0%B5%D1%80%D1%8B/3/src/main/java/org/example)
 
 Задача 4 (1.3.49)
 
@@ -32,6 +32,6 @@
 
 Время выполнения: 0.533 ч. Расчетное время: 0.575 ч.
 
-Ссылка на директорию с кодом:
+Ссылка на директорию с кодом: [ Очереди_стеки_контейнеры/4/src/main/java/org/example](https://github.com/Chawotto/java-algorythm/tree/103404665159449661dd370bf0768b717ba5a987/%D0%9E%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8_%D1%81%D1%82%D0%B5%D0%BA%D0%B8_%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%B9%D0%BD%D0%B5%D1%80%D1%8B/4/src/main/java/org/example)
 
 Cсылка на Sonar: https://sonarcloud.io/summary/new_code?id=Chawotto_java-algorythm
