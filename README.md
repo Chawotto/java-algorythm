@@ -2,8 +2,6 @@
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Chawotto_java-algorythm&metric=bugs)](https://sonarcloud.io/summary/new_code?id=Chawotto_java-algorythm)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Chawotto_java-algorythm&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=Chawotto_java-algorythm)
 
-# java-algorythm
-
 # Раздел 1.3 Контейнеры, очереди, стеки:
 
 Задача 1 (1.3.4)
