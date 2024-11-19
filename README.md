@@ -2,6 +2,8 @@
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Chawotto_java-algorythm&metric=bugs)](https://sonarcloud.io/summary/new_code?id=Chawotto_java-algorythm)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Chawotto_java-algorythm&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=Chawotto_java-algorythm)
 
+Cсылка на Sonar: https://sonarcloud.io/summary/new_code?id=Chawotto_java-algorythm
+
 # Раздел 1.3 Контейнеры, очереди, стеки:
 
 Задача 1 (1.3.4)
@@ -111,6 +113,3 @@
 Ссылка на директорию с кодом: [Деревья_бинарного_поиска/4/src/main/java/org/example](https://github.com/Chawotto/java-algorythm/tree/80568e33ea502fd39114ff6b0c7b499cf1331878/%D0%94%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F_%D0%B1%D0%B8%D0%BD%D0%B0%D1%80%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0/4/src/main/java/org/example)
 
 Расчетное время для раздела: 3.359 ч. Время выполнения раздела: 2.888 ч.
-
-
-Cсылка на Sonar: https://sonarcloud.io/summary/new_code?id=Chawotto_java-algorythm
