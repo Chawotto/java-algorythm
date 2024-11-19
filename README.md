@@ -84,7 +84,7 @@
 
 Расчетное время: 0.416 ч. Время выполнения: 0.397 ч. 
 
-Ссылка на директорию с кодом:
+Ссылка на директорию с кодом: [Деревья_бинарного_поиска/1/src/main/java/org/example](https://github.com/Chawotto/java-algorythm/tree/80568e33ea502fd39114ff6b0c7b499cf1331878/%D0%94%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F_%D0%B1%D0%B8%D0%BD%D0%B0%D1%80%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0/1/src/main/java/org/example)
 
 Задача 2 (3.2.29)
 
@@ -92,7 +92,7 @@
 
 Расчетное время: 0.630 ч. Время выполнения: 0.582 ч. 
 
-Ссылка на директорию с кодом:
+Ссылка на директорию с кодом: [Деревья_бинарного_поиска/2/src/main/java/org/example](https://github.com/Chawotto/java-algorythm/tree/80568e33ea502fd39114ff6b0c7b499cf1331878/%D0%94%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F_%D0%B1%D0%B8%D0%BD%D0%B0%D1%80%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0/2/src/main/java/org/example)
 
 Задача 3 (3.2.37)
 
@@ -100,7 +100,7 @@
 
 Расчетное время: 0.869 ч. Время выполнения: 0.798 ч. 
 
-Ссылка на директорию с кодом:
+Ссылка на директорию с кодом: [Деревья_бинарного_поиска/3/src/main/java/org/example](https://github.com/Chawotto/java-algorythm/tree/80568e33ea502fd39114ff6b0c7b499cf1331878/%D0%94%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F_%D0%B1%D0%B8%D0%BD%D0%B0%D1%80%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0/3/src/main/java/org/example)
 
 Задача 4 (3.2.28)
 
@@ -108,7 +108,7 @@
 
 Расчетное время: 1.444 ч. Время выполнения: 1.111 ч. 
 
-Ссылка на директорию с кодом:
+Ссылка на директорию с кодом: [Деревья_бинарного_поиска/4/src/main/java/org/example](https://github.com/Chawotto/java-algorythm/tree/80568e33ea502fd39114ff6b0c7b499cf1331878/%D0%94%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F_%D0%B1%D0%B8%D0%BD%D0%B0%D1%80%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0/4/src/main/java/org/example)
 
 Расчетное время для раздела: 3.359 ч. Время выполнения раздела: 2.888 ч.
 
