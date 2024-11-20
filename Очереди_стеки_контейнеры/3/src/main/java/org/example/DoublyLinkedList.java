@@ -75,17 +75,15 @@ public class DoublyLinkedList {
 
     public void insertBefore(DoubleNode node, int value) {
         if (node == null || head == null) return;
-        DoubleNode newNode = new DoubleNode(value);
         if (node == head) {
-            newNode.next = head;
-            head.prev = newNode;
-            head = newNode;
-        } else {
-            newNode.prev = node.prev;
-            newNode.next = node;
-            node.prev.next = newNode;
-            node.prev = newNode;
+            insertAtBeginning(value);
+            return;
         }
+        DoubleNode newNode = new DoubleNode(value);
+        newNode.prev = node.prev;
+        newNode.next = node;
+        node.prev.next = newNode;
+        node.prev = newNode;
         logger.info(() -> String.format("Element %d inserted before node with value %d", value, node.value));
     }
 
@@ -107,18 +105,16 @@ public class DoublyLinkedList {
 
     public void deleteNode(DoubleNode node) {
         if (node == null || head == null) return;
-        if (node == head && node == tail) {
-            head = tail = null;
-        } else if (node == head) {
-            head = node.next;
-            head.prev = null;
-        } else if (node == tail) {
-            tail = node.prev;
-            tail.next = null;
-        } else {
-            node.prev.next = node.next;
-            node.next.prev = node.prev;
+        if (node == head) {
+            deleteFromBeginning();
+            return;
         }
+        if (node == tail) {
+            deleteFromEnd();
+            return;
+        }
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
         logger.info(() -> String.format("Node with value %d deleted.", node.value));
     }
 
@@ -132,7 +128,6 @@ public class DoublyLinkedList {
         logger.info(() -> String.format("List: %s", listRepresentation.toString()));
     }
 
-    // Метод для нахождения узла по значению
     public DoubleNode findNode(int value) {
         DoubleNode current = head;
         while (current != null) {
