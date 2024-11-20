@@ -2,9 +2,12 @@
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Chawotto_java-algorythm&metric=bugs)](https://sonarcloud.io/summary/new_code?id=Chawotto_java-algorythm)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Chawotto_java-algorythm&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=Chawotto_java-algorythm)
 
+Cсылка на Sonar: https://sonarcloud.io/summary/new_code?id=Chawotto_java-algorythm
+
 # Раздел 1.3 Контейнеры, очереди, стеки:
 
 Задача 1 (1.3.4)
+
 Напишите клиент стека Parentheses, который читает поток символов из стандартного ввода и использует стек для определения правильности балансировки скобок. Например, программа должна вывести true для {{}[()]} и false для ([{]}]}. 
 
 Расчетное время: 0.091 ч. Время выполнения: 0.081 ч. 
@@ -12,6 +15,7 @@
 Ссылка на директорию с кодом: [ Очереди_стеки_контейнеры/1/src/main/java/org/example](https://github.com/Chawotto/java-algorythm/tree/103404665159449661dd370bf0768b717ba5a987/%D0%9E%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D0%B8_%D1%81%D1%82%D0%B5%D0%BA%D0%B8_%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%B9%D0%BD%D0%B5%D1%80%D1%8B/1/src/main/java/org/example)
 
 Задача 2 (1.3.14)
+
 Разработайте класс ResizingArrayQueueOfStrings, который реализует обстракцию очереди с массивом фиксированного размера, а потом добавьте в полученную реализацию изменение размера массива, чтобы снять ограничение на размер. 
 
 Расчетное время: 0.241 ч. Время выполнения: 0.2 ч.
@@ -44,7 +48,7 @@
 
 Расчетное время: 0.369 ч. Время выполнения: 0.359 ч.
 
-Ссылка на директорию с кодом:
+Ссылка на директорию с кодом: [ Применение_сортировок/1/src/main/java/org/example](https://github.com/Chawotto/java-algorythm/tree/d36a67b86871340c5ec53c91552669c5fa2d7296/%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5_%D1%81%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA/1/src/main/java/org/example)
 
 Задача 2 (2.5.16)
 
@@ -53,7 +57,7 @@
 
 Расчетное время: 0.336 ч. Время выполнения: 0.328 ч. 
 
-Ссылка на директорию с кодом:
+Ссылка на директорию с кодом: [ Применение_сортировок/2/src/main/java/org/example](https://github.com/Chawotto/java-algorythm/tree/d36a67b86871340c5ec53c91552669c5fa2d7296/%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5_%D1%81%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA/2/src/main/java/org/example)
 
 Задача 3 (2.5.21)
 
@@ -61,7 +65,7 @@
 
 Расчетное время: 0.427 ч. Время выполнения: 0.398 ч. 
 
-Ссылка на директорию с кодом:
+Ссылка на директорию с кодом: [ Применение_сортировок/3/src/main/java/org/example](https://github.com/Chawotto/java-algorythm/tree/d36a67b86871340c5ec53c91552669c5fa2d7296/%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5_%D1%81%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA/3/src/main/java/org/example)
 
 Задача 4 (2.5.29)
 
@@ -70,7 +74,7 @@
 
 Расчетное время: 0.727 ч. Время выполнения: 0.712 ч. 
 
-Ссылка на директорию с кодом:
+Ссылка на директорию с кодом: [ Применение_сортировок/4/src/main/java/org/example](https://github.com/Chawotto/java-algorythm/tree/d36a67b86871340c5ec53c91552669c5fa2d7296/%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5_%D1%81%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA/4/src/main/java/org/example)
 
 Расчетное время для раздела: 1.859 ч. Время выполнения раздела: 1.797 ч.
 
@@ -82,7 +86,7 @@
 
 Расчетное время: 0.416 ч. Время выполнения: 0.397 ч. 
 
-Ссылка на директорию с кодом:
+Ссылка на директорию с кодом: [Деревья_бинарного_поиска/1/src/main/java/org/example](https://github.com/Chawotto/java-algorythm/tree/80568e33ea502fd39114ff6b0c7b499cf1331878/%D0%94%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F_%D0%B1%D0%B8%D0%BD%D0%B0%D1%80%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0/1/src/main/java/org/example)
 
 Задача 2 (3.2.29)
 
@@ -90,7 +94,7 @@
 
 Расчетное время: 0.630 ч. Время выполнения: 0.582 ч. 
 
-Ссылка на директорию с кодом:
+Ссылка на директорию с кодом: [Деревья_бинарного_поиска/2/src/main/java/org/example](https://github.com/Chawotto/java-algorythm/tree/80568e33ea502fd39114ff6b0c7b499cf1331878/%D0%94%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F_%D0%B1%D0%B8%D0%BD%D0%B0%D1%80%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0/2/src/main/java/org/example)
 
 Задача 3 (3.2.37)
 
@@ -98,7 +102,7 @@
 
 Расчетное время: 0.869 ч. Время выполнения: 0.798 ч. 
 
-Ссылка на директорию с кодом:
+Ссылка на директорию с кодом: [Деревья_бинарного_поиска/3/src/main/java/org/example](https://github.com/Chawotto/java-algorythm/tree/80568e33ea502fd39114ff6b0c7b499cf1331878/%D0%94%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F_%D0%B1%D0%B8%D0%BD%D0%B0%D1%80%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0/3/src/main/java/org/example)
 
 Задача 4 (3.2.28)
 
@@ -106,9 +110,6 @@
 
 Расчетное время: 1.444 ч. Время выполнения: 1.111 ч. 
 
-Ссылка на директорию с кодом:
+Ссылка на директорию с кодом: [Деревья_бинарного_поиска/4/src/main/java/org/example](https://github.com/Chawotto/java-algorythm/tree/80568e33ea502fd39114ff6b0c7b499cf1331878/%D0%94%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F_%D0%B1%D0%B8%D0%BD%D0%B0%D1%80%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0/4/src/main/java/org/example)
 
 Расчетное время для раздела: 3.359 ч. Время выполнения раздела: 2.888 ч.
-
-
-Cсылка на Sonar: https://sonarcloud.io/summary/new_code?id=Chawotto_java-algorythm
