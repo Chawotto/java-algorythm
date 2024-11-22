@@ -20,8 +20,16 @@ public class OptimalBST {
         if (nodeCount <= 0) {
             throw new IllegalArgumentException("Количество узлов должно быть больше 0.");
         }
-        int height = (int) Math.ceil(Math.log(nodeCount) / Math.log(2));
-        return (int) Math.ceil(height + (Math.pow(2, height) - nodeCount) / Math.pow(2, height));
+        // Вычисляем высоту дерева
+        double height = Math.log(nodeCount) / Math.log(2);
+        // Округляем высоту вверх
+        int roundedHeight = (int) Math.ceil(height);
+        // Вычисляем максимальное количество узлов для данной высоты
+        double maxNodesAtHeight = Math.pow(2, roundedHeight);
+        // Вычисляем пустые места
+        double emptySlots = maxNodesAtHeight - nodeCount;
+        // Возвращаем среднее количество сравнений
+        return (int) Math.ceil(roundedHeight + (emptySlots / maxNodesAtHeight));
     }
 
     public static void main(String[] args) {

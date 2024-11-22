@@ -9,10 +9,12 @@ public class LS {
     private static final Logger logger = Logger.getLogger(LS.class.getName());
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        if (args.length == 0) {
+            logger.severe("Не указан путь к каталогу. Пожалуйста, укажите путь как аргумент.");
+            return;
+        }
 
-        logger.info("Введите путь к каталогу: ");
-        String directoryPath = scanner.nextLine();
+        String directoryPath = args[0];
         File directory = new File(directoryPath);
 
         if (!directory.isDirectory()) {
@@ -29,7 +31,7 @@ public class LS {
         }
 
         List<File> fileList = new ArrayList<>(Arrays.asList(files));
-        showMenu(scanner, fileList);
+        showMenu(new Scanner(System.in), fileList);
 
         if (logger.isLoggable(Level.INFO)) {
             logger.info("Список файлов:");

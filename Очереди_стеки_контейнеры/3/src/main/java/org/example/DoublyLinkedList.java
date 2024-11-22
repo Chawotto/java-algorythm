@@ -89,17 +89,18 @@ public class DoublyLinkedList {
 
     public void insertAfter(DoubleNode node, int value) {
         if (node == null) return;
-        DoubleNode newNode = new DoubleNode(value);
+
         if (node == tail) {
-            node.next = newNode;
-            newNode.prev = node;
-            tail = newNode;
-        } else {
-            newNode.next = node.next;
-            newNode.prev = node;
-            node.next.prev = newNode;
-            node.next = newNode;
+            insertAtEnd(value);
+            return;
         }
+
+        DoubleNode newNode = new DoubleNode(value);
+        newNode.prev = node;
+        newNode.next = node.next;
+        node.next.prev = newNode;
+        node.next = newNode;
+
         logger.info(() -> String.format("Element %d inserted after node with value %d", value, node.value));
     }
 
