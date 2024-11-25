@@ -17,19 +17,17 @@ public class OptimalBST {
     }
 
     public static int optComparesO(int nodeCount) {
+
         if (nodeCount <= 0) {
             throw new IllegalArgumentException("Количество узлов должно быть больше 0.");
         }
+
         // Вычисляем высоту дерева
-        double height = Math.log(nodeCount) / Math.log(2);
+        double height = Math.log((double) nodeCount + 1) / Math.log(2);
         // Округляем высоту вверх
         int roundedHeight = (int) Math.ceil(height);
-        // Вычисляем максимальное количество узлов для данной высоты
-        double maxNodesAtHeight = Math.pow(2, roundedHeight);
-        // Вычисляем пустые места
-        double emptySlots = maxNodesAtHeight - nodeCount;
-        // Возвращаем среднее количество сравнений
-        return (int) Math.ceil(roundedHeight + (emptySlots / maxNodesAtHeight));
+        // Вычисляем среднее количество сравнений
+        return (roundedHeight + (nodeCount - 1)) / nodeCount;
     }
 
     public static void main(String[] args) {
