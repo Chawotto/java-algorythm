@@ -8,7 +8,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <!-- Укажите путь к проекту -->
         <module>Очереди_стеки_контейнеры/1</module>
 	<module>Очереди_стеки_контейнеры/2</module>
 	<module>Очереди_стеки_контейнеры/3</module>
@@ -21,8 +20,8 @@
 	<module>Деревья_бинарного_поиска/2</module>
 	<module>Деревья_бинарного_поиска/3</module>
 	<module>Деревья_бинарного_поиска/4</module>
+	<module>Сбалансированные_деревья_поиска/1</module>
 
-        <!-- Добавьте другие модули, если нужно -->
     </modules>
     <properties>
   	<maven.compiler.source>17</maven.compiler.source>    	<maven.compiler.target>17</maven.compiler.target>
