@@ -133,7 +133,7 @@ Cсылка на Sonar: https://sonarcloud.io/summary/new_code?id=Chawotto_java-
 
 Ссылка на директорию с кодом: [Сбалансированные_деревья_поиска\2\src\main\java\org\example](https://github.com/Chawotto/java-algorythm/tree/4070b8bb2d3cd34d17e95c449ffb4139d2a49288/%D0%A1%D0%B1%D0%B0%D0%BB%D0%B0%D0%BD%D1%81%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5_%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F_%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0/2/src/main/java/org/example)
 
-Задача 3 (3.3.38)
+Задача 3 (3.3.37)
 
 Покажите, что красно-черные ДБП обладают памятью: например, если вставить в него ключ, меньший всех других ключей , и сразу же удалить наименьший ключ, то может получиться другое дерево.
 
