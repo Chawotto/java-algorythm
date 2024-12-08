@@ -147,6 +147,6 @@ Cсылка на Sonar: https://sonarcloud.io/summary/new_code?id=Chawotto_java-
 
 Расчетное время: 1 ч. Время выполнения: 0.778 ч.
 
-Ссылка на директорию с кодом: [Сбалансированные_деревья_поиска\4\src\main\java\org\example](https://github.com/Chawotto/java-algorythm/tree/bd119248dea73ac925ee6755522af2ee6c7083e3/%D0%A1%D0%B1%D0%B0%D0%BB%D0%B0%D0%BD%D1%81%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5_%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F_%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0/3/src/main/java/org/example)
+Ссылка на директорию с кодом: [Сбалансированные_деревья_поиска\4\src\main\java\org\example](https://github.com/Chawotto/java-algorythm/tree/2fd9ee9799f20a90d7f7fee2533961375124a5da/%D0%A1%D0%B1%D0%B0%D0%BB%D0%B0%D0%BD%D1%81%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5_%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F_%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0/4/src/main/java/org/example)
 
 Расчетное время для раздела: 3.768 ч. Время выполнения раздела: 3.039 ч.
