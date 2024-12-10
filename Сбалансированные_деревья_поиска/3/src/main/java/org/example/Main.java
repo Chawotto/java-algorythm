@@ -313,7 +313,8 @@ public class Main {
             System.out.println("1. Вставить ключ");
             System.out.println("2. Удалить наименьший ключ");
             System.out.println("3. Визуализировать дерево");
-            System.out.println("4. Выйти");
+            System.out.println("4. Запустить тест");
+            System.out.println("5. Выйти");
 
             int choice = scanner.nextInt();
 
@@ -330,11 +331,38 @@ public class Main {
                     rbt.printTree();
                     break;
                 case 4:
+                    System.out.println("Запустить тест.");
+                    runTest();
+                    break;
+                case 5:
                     System.out.println("Выход из программы.");
                     return;
                 default:
                     System.out.println("Неверный выбор. Попробуйте снова.");
             }
         }
+    }
+
+    private static void runTest() {
+        RedBlackTree rbt = new RedBlackTree();
+
+        int[] initialKeys = {10, 20, 30, 15, 25, 5};
+        for (int key : initialKeys) {
+            rbt.insert(key);
+        }
+
+        System.out.println("Исходное дерево:");
+        rbt.printTree();
+
+        int minKey = rbt.minimum(rbt.root).data - 1;
+        rbt.insert(minKey);
+
+        System.out.println("\nДерево после вставки наименьшего ключа:");
+        rbt.printTree();
+
+        rbt.delete(rbt.minimum(rbt.root).data);
+
+        System.out.println("\nДерево после удаления наименьшего ключа:");
+        rbt.printTree();
     }
 }
