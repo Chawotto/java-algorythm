@@ -33,12 +33,7 @@ class RedBlackTree {
 
     public void insert(int key) {
         Node node = new Node(key, Color.RED, null, tnull, tnull);
-        node.parent = null;
-        node.data = key;
-        node.left = tnull;
-        node.right = tnull;
-        node.color = Color.RED;
-
+       
         Node y = null;
         Node x = this.root;
 
