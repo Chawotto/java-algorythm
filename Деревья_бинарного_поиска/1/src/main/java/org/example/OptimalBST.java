@@ -16,18 +16,14 @@ public class OptimalBST {
         logger.setLevel(Level.INFO);
     }
 
-    public static int optComparesO(int nodeCount) {
-
+    public static float optComparesO(int nodeCount) {
         if (nodeCount <= 0) {
             throw new IllegalArgumentException("Количество узлов должно быть больше 0.");
         }
 
-        // Вычисляем высоту дерева
-        double height = Math.log((double) nodeCount + 1) / Math.log(2);
-        // Округляем высоту вверх
-        int roundedHeight = (int) Math.ceil(height);
-        // Вычисляем среднее количество сравнений
-        return (roundedHeight + (nodeCount - 1)) / nodeCount;
+        double height = Math.log(nodeCount);
+
+        return (float) (height / Math.log(2));
     }
 
     public static void main(String[] args) {
@@ -40,9 +36,9 @@ public class OptimalBST {
                 return;
             }
 
-            int averageComparisons = optComparesO(nodeCount);
+            float averageComparisons = optComparesO(nodeCount);
             if (logger.isLoggable(Level.INFO)) {
-                logger.info(String.format("Среднее количество сравнений для оптимального ДБП: %d", averageComparisons));
+                logger.info(String.format("Среднее количество сравнений для оптимального ДБП: %f", averageComparisons));
             }
         } catch (Exception e) {
             logger.severe("Ошибка: " + e.getMessage());
