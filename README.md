@@ -120,7 +120,7 @@ Cсылка на Sonar: https://sonarcloud.io/summary/new_code?id=Chawotto_java-
 
 Разработайте реализацию базового API таблицы имен на основе 2-3-деревьев, которые не обязательно сбалансированы. Разрешите наклон 3-узлов в любую сторону. При вставке в 3-узел на нижнем уровне прикрепляйте новый узел черной связью. Проведите эксперименты и на их основе сформулируйте гипотезу с оценкой средней длины пути в дереве, построенном N случайными вставками.
 
-Ссылка на директорию с кодом: [Сбалансированные_деревья_поиска\1\src\main\java\org\example](https://github.com/Chawotto/java-algorythm/tree/d40f6c4d19ce2339c403413e7f97af95c1ad7b5b/%D0%A1%D0%B1%D0%B0%D0%BB%D0%B0%D0%BD%D1%81%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5_%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F_%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0/1/src/main/java/org/example)
+Ссылка на директорию с кодом: [Сбалансированные_деревья_поиска\1\src\main\java\org\example](https://github.com/Chawotto/java-algorythm/tree/756224a16a56bb763ae0625902bd9eb69bab6441/%D0%A1%D0%B1%D0%B0%D0%BB%D0%B0%D0%BD%D1%81%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5_%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F_%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0/1/src/main/java/org/example)
 
 Задача 2 (3.3.35)
 
