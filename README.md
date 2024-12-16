@@ -175,4 +175,4 @@ Cсылка на Sonar: https://sonarcloud.io/summary/new_code?id=Chawotto_java-
 
 Расчетное время: 0.256 ч. Время выполнения: 0.174 ч.
 
-Ссылка на директорию с кодом: [Хеш-таблицы\3\src\main\java\org\example]()
+Ссылка на директорию с кодом: [Хеш-таблицы\3\src\main\java\org\example](https://github.com/Chawotto/java-algorythm/tree/b8eb2ca82a30b20dca6334348d8ffe6b38895c03/%D0%A5%D0%B5%D1%88-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D1%8B/3/src/main/java/org/example)
