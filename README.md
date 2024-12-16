@@ -160,4 +160,10 @@ Cсылка на Sonar: https://sonarcloud.io/summary/new_code?id=Chawotto_java-
 
 Ссылка на директорию с кодом: [Хеш-таблицы\1\src\main\java\org\example](https://github.com/Chawotto/java-algorythm/tree/1b0e5465a3d0237e3b528385ddc7a2b0a6ace884/%D0%A5%D0%B5%D1%88-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D1%8B/1/src/main/java/org/example)
 
+Задача 2 (3.4.23)
+
+Пусть используется модульное хеширование для строковых ключей с R = 256 И М = 255. Покажите, что этот выбор неудачен, т.к. любая перестановка букв в строке хешируется в одно и то же значение.
+
+Расчетное время: 0.272 ч. Время выполнения: 0.192 ч.
+
 Ссылка на директорию с кодом: [Хеш-таблицы\2\src\main\java\org\example](https://github.com/Chawotto/java-algorythm/tree/2b5300bd408109f53426e2dc16f8d380c91faa90/%D0%A5%D0%B5%D1%88-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D1%8B/2/src/main/java/org/example)
