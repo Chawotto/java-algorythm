@@ -23,6 +23,8 @@
 	<module>Сбалансированные_деревья_поиска/1</module>
 	<module>Сбалансированные_деревья_поиска/2</module>
 	<module>Сбалансированные_деревья_поиска/3</module>
+	<module>Хеш-таблицы/1</module>
+	<module>Хеш-таблицы/2</module>
 
     </modules>
     <properties>
