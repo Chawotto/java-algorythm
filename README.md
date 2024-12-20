@@ -203,5 +203,5 @@ Cсылка на Sonar: https://sonarcloud.io/summary/new_code?id=Chawotto_java-
 
 Расчетное время: 0.25 ч. Время выполнения: 0.2 ч.
 
-Ссылка на директорию с кодом: [Сортировка_строк\2\src\main\java\org\example]()
+Ссылка на директорию с кодом: [Сортировка_строк\2\src\main\java\org\example](https://github.com/Chawotto/java-algorythm/tree/d82d8af94af6acdff107153782d1f9e7ffb2f214/%D0%A1%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0_%D1%81%D1%82%D1%80%D0%BE%D0%BA/2/src/main/java/org/example)
 
