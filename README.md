@@ -229,7 +229,7 @@ Cсылка на Sonar: https://sonarcloud.io/summary/new_code?id=Chawotto_java-
 
 Расчетное время: 0.5 ч. Время выполнения: 0.45 ч.
 
-Ссылка на директорию с кодом: [Trie-деревья\1\src\main\java\org\example]()
+Ссылка на директорию с кодом: [Trie-деревья\1\src\main\java\org\example](https://github.com/Chawotto/java-algorythm/tree/781dd877111b4cbeee17b42c6ee2cad6ce4e1450/Trie-%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F/1/src/main/java/org/example)
 
 Задача 2 (5.2.14) 
 
@@ -237,7 +237,7 @@ Cсылка на Sonar: https://sonarcloud.io/summary/new_code?id=Chawotto_java-
 
 Расчетное время: 0.8 ч. Время выполнения: 0.74 ч.
 
-Ссылка на директорию с кодом: [Trie-деревья\2\src\main\java\org\example]()
+Ссылка на директорию с кодом: [Trie-деревья\2\src\main\java\org\example](https://github.com/Chawotto/java-algorythm/tree/781dd877111b4cbeee17b42c6ee2cad6ce4e1450/Trie-%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F/2/src/main/java/org/example)
 
 Задача 3 (5.2.15) 
 
@@ -245,7 +245,7 @@ Cсылка на Sonar: https://sonarcloud.io/summary/new_code?id=Chawotto_java-
 
 Расчетное время: 0.5 ч. Время выполнения: 0.44 ч.
 
-Ссылка на директорию с кодом: [Trie-деревья\3\src\main\java\org\example]()
+Ссылка на директорию с кодом: [Trie-деревья\3\src\main\java\org\example](https://github.com/Chawotto/java-algorythm/tree/781dd877111b4cbeee17b42c6ee2cad6ce4e1450/Trie-%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F/3)
 
 Задача 4 (5.2.21) 
 
@@ -253,6 +253,6 @@ Cсылка на Sonar: https://sonarcloud.io/summary/new_code?id=Chawotto_java-
 
 Расчетное время: 1 ч. Время выполнения: 0.87 ч.
 
-Ссылка на директорию с кодом: [Trie-деревья\4\src\main\java\org\example]()
+Ссылка на директорию с кодом: [Trie-деревья\4\src\main\java\org\example](https://github.com/Chawotto/java-algorythm/tree/781dd877111b4cbeee17b42c6ee2cad6ce4e1450/Trie-%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F/4/src/main/java/org/example)
 
 Расчетное время для раздела: 2.8 ч. Время выполнения раздела: 2.5 ч.
