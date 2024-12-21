@@ -30,8 +30,11 @@
 	<module>Сортировка_строк/2</module>
 	<module>Сортировка_строк/3</module>
 	<module>Сортировка_строк/4</module>
-
-
+	<module>Trie-деревья/1</module>
+	<module>Trie-деревья/2</module>
+	<module>Trie-деревья/3</module>
+	<module>Trie-деревья/4</module>
+	
     </modules>
     <properties>
   	<maven.compiler.source>17</maven.compiler.source>    	<maven.compiler.target>17</maven.compiler.target>
