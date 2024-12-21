@@ -256,3 +256,5 @@ Cсылка на Sonar: https://sonarcloud.io/summary/new_code?id=Chawotto_java-
 Ссылка на директорию с кодом: [Trie-деревья\4\src\main\java\org\example](https://github.com/Chawotto/java-algorythm/tree/781dd877111b4cbeee17b42c6ee2cad6ce4e1450/Trie-%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F/4/src/main/java/org/example)
 
 Расчетное время для раздела: 2.8 ч. Время выполнения раздела: 2.5 ч.
+
+#	Раздел 5.3 Поиск подстрок:
