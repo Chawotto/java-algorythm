@@ -302,7 +302,7 @@ Cсылка на Sonar: https://sonarcloud.io/summary/new_code?id=Chawotto_java-
 
 Расчетное время: 0.73 ч. Время выполнения: 0.81 ч.
 
-Ссылка на директорию с кодом: [Регулярные_выражения\1\src\main\java\org\example]()
+Ссылка на директорию с кодом: [Регулярные_выражения\1\src\main\java\org\example](https://github.com/Chawotto/java-algorythm/tree/4870e4acc01a8b5f7514d8c69a0e4cc62623b5dc/%D0%A0%D0%B5%D0%B3%D1%83%D0%BB%D1%8F%D1%80%D0%BD%D1%8B%D0%B5_%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F/1/src/main/java/org/example)
 
 Задача 2 (5.4.17)
 
@@ -310,7 +310,7 @@ Cсылка на Sonar: https://sonarcloud.io/summary/new_code?id=Chawotto_java-
 
 Расчетное время: 0.8 ч. Время выполнения: 1 ч.
 
-Ссылка на директорию с кодом: [Регулярные_выражения\2\src\main\java\org\example]()
+Ссылка на директорию с кодом: [Регулярные_выражения\2\src\main\java\org\example](https://github.com/Chawotto/java-algorythm/tree/4870e4acc01a8b5f7514d8c69a0e4cc62623b5dc/%D0%A0%D0%B5%D0%B3%D1%83%D0%BB%D1%8F%D1%80%D0%BD%D1%8B%D0%B5_%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F/2/src/main/java/org/example)
 
 Задача 3 (5.4.20) 
 
@@ -318,7 +318,7 @@ Cсылка на Sonar: https://sonarcloud.io/summary/new_code?id=Chawotto_java-
 
 Расчетное время: 0.9 ч. Время выполнения: 0.75 ч.
 
-Ссылка на директорию с кодом: [Регулярные_выражения\3\src\main\java\org\example]()
+Ссылка на директорию с кодом: [Регулярные_выражения\3\src\main\java\org\example](https://github.com/Chawotto/java-algorythm/tree/4870e4acc01a8b5f7514d8c69a0e4cc62623b5dc/%D0%A0%D0%B5%D0%B3%D1%83%D0%BB%D1%8F%D1%80%D0%BD%D1%8B%D0%B5_%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F/3)
 
 Задача 4 (5.4.21) 
 
@@ -326,7 +326,7 @@ Cсылка на Sonar: https://sonarcloud.io/summary/new_code?id=Chawotto_java-
 
 Расчетное время: 1 ч. Время выполнения: 0.9 ч.
 
-Ссылка на директорию с кодом: [Регулярные_выражения\4\src\main\java\org\example]()
+Ссылка на директорию с кодом: [Регулярные_выражения\4\src\main\java\org\example](https://github.com/Chawotto/java-algorythm/tree/4870e4acc01a8b5f7514d8c69a0e4cc62623b5dc/%D0%A0%D0%B5%D0%B3%D1%83%D0%BB%D1%8F%D1%80%D0%BD%D1%8B%D0%B5_%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F/4/src/main/java/org/example)
 
 Расчетное время для раздела: 3.43 ч. Время выполнения раздела: 3.46 ч.
 
