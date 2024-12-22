@@ -38,7 +38,11 @@
 	<module>Поиск_подстрок/2</module>
 	<module>Поиск_подстрок/3</module>
 	<module>Поиск_подстрок/4</module>
-	
+	<module>Регулярные_выражения/1</module>
+	<module>Регулярные_выражения/2</module>
+	<module>Регулярные_выражения/3</module>
+	<module>Регулярные_выражения/4</module>
+
     </modules>
     <properties>
   	<maven.compiler.source>17</maven.compiler.source>    	<maven.compiler.target>17</maven.compiler.target>
