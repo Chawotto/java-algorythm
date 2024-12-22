@@ -265,7 +265,7 @@ Cсылка на Sonar: https://sonarcloud.io/summary/new_code?id=Chawotto_java-
 
 Расчетное время: 0.5 ч. Время выполнения: 0.45 ч.
 
-Ссылка на директорию с кодом: [Поиск_подстрок\1\src\main\java\org\example]()
+Ссылка на директорию с кодом: [Поиск_подстрок\1\src\main\java\org\example](https://github.com/Chawotto/java-algorythm/tree/bb58303b263c3de3f16c806f4330ab08f17368ed/%D0%9F%D0%BE%D0%B8%D1%81%D0%BA_%D0%BF%D0%BE%D0%B4%D1%81%D1%82%D1%80%D0%BE%D0%BA/1/src/main/java/org/example)
 
 Задача 2 (5.3.26)
 
@@ -273,7 +273,7 @@ Cсылка на Sonar: https://sonarcloud.io/summary/new_code?id=Chawotto_java-
 
 Расчетное время: 0.4 ч. Время выполнения: 0.4 ч.
 
-Ссылка на директорию с кодом: [Поиск_подстрок\2\src\main\java\org\example]()
+Ссылка на директорию с кодом: [Поиск_подстрок\2\src\main\java\org\example](https://github.com/Chawotto/java-algorythm/tree/bb58303b263c3de3f16c806f4330ab08f17368ed/%D0%9F%D0%BE%D0%B8%D1%81%D0%BA_%D0%BF%D0%BE%D0%B4%D1%81%D1%82%D1%80%D0%BE%D0%BA/2/src/main/java/org/example)
 
 Задача 3 (5.3.36)
 
@@ -281,7 +281,7 @@ Cсылка на Sonar: https://sonarcloud.io/summary/new_code?id=Chawotto_java-
 
 Расчетное время: 0.8 ч. Время выполнения: 1 ч.
 
-Ссылка на директорию с кодом: [Поиск_подстрок\3\src\main\java\org\example]()
+Ссылка на директорию с кодом: [Поиск_подстрок\3\src\main\java\org\example](https://github.com/Chawotto/java-algorythm/tree/bb58303b263c3de3f16c806f4330ab08f17368ed/%D0%9F%D0%BE%D0%B8%D1%81%D0%BA_%D0%BF%D0%BE%D0%B4%D1%81%D1%82%D1%80%D0%BE%D0%BA/3/src/main/java/org/example)
 
 Задача 4 (5.3.37)
 
@@ -290,7 +290,7 @@ Cсылка на Sonar: https://sonarcloud.io/summary/new_code?id=Chawotto_java-
 
 Расчетное время: 1.2 ч. Время выполнения: 0.9 ч.
 
-Ссылка на директорию с кодом: [Поиск_подстрок\4\src\main\java\org\example]()
+Ссылка на директорию с кодом: [Поиск_подстрок\4\src\main\java\org\example](https://github.com/Chawotto/java-algorythm/tree/bb58303b263c3de3f16c806f4330ab08f17368ed/%D0%9F%D0%BE%D0%B8%D1%81%D0%BA_%D0%BF%D0%BE%D0%B4%D1%81%D1%82%D1%80%D0%BE%D0%BA/4/src/main/java/org/example)
 
 Расчетное время для раздела: 2.9 ч. Время выполнения раздела: 2.75 ч.
 
