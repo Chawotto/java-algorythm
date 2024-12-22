@@ -34,6 +34,10 @@
 	<module>Trie-деревья/2</module>
 	<module>Trie-деревья/3</module>
 	<module>Trie-деревья/4</module>
+	<module>Поиск_подстрок/1</module>
+	<module>Поиск_подстрок/2</module>
+	<module>Поиск_подстрок/3</module>
+	<module>Поиск_подстрок/4</module>
 	
     </modules>
     <properties>
