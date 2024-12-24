@@ -33,7 +33,7 @@ class RedBlackTree {
 
     public void insert(int key) {
         Node node = new Node(key, Color.RED, null, tnull, tnull);
-       
+
         Node y = null;
         Node x = this.root;
 
@@ -349,7 +349,7 @@ public class Main {
         System.out.println("Исходное дерево:");
         rbt.printTree();
 
-        int minKey = rbt.minimum(rbt.root).data - 1;
+        int minKey = rbt.minimum(rbt.root).data - 2;
         rbt.insert(minKey);
 
         System.out.println("\nДерево после вставки наименьшего ключа:");
