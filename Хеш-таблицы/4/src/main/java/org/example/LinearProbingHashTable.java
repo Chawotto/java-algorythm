@@ -29,8 +29,8 @@ public class LinearProbingHashTable {
         for (int i = 0; i < size; i++) {
             if (table[i] != -1) {
                 int probeLength = 1;
-                int index = (table[i] + 1) % size;
-                while (table[index] != -1 && table[index] != table[i]) {
+                int index = table[i] % size;
+                while (index != i) {
                     probeLength++;
                     index = (index + 1) % size;
                 }
@@ -44,6 +44,7 @@ public class LinearProbingHashTable {
         }
         return ccount;
     }
+
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
