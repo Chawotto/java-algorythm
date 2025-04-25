@@ -9,9 +9,10 @@ public class StringSort {
             "PLMNOKIJUH", "BVGFCDRETY", "UJHYGTFRDS", "QAZXSWEDCV", "1234567890", "0987654321", "POLKIMNBVC", "ZAQWSXEDCR", "FVGBHNJMKL", "UIOPLKJHGF",
             "WERASDFGHJ", "TYUIOPLKJH", "FGHJZXCVBN", "MNBVCXWERT", "YUIOKPLMNB", "OKJHGFDSWE", "ZXCVBNMASD", "PLKJHGFDSA", "WERTYUIOPQ", "CVBNMASDFGH",
             "QWERTZXCVBN", "ASDFGHJKLMN", "ZXCVBNMSDFG", "ERTYUIKJHGF", "QWERTYZXCVB", "PLMNBVCXZAS", "QAZXSDEWCRF", "VTGBYHNUMKI", "POLIKUJMYHB", "JNHBGVTFDCR",
-            "WSXQAZERTYU", "WSXEDCFTGBH", "UJNHBGVTFCDR", "ZXCVBNMASDFF", "QAZXSWECDRTF", "VGBYHNUJMKIO", "ZXCASDFRTGHB", "NMJIKLOPERAS", "QAZXSWEFRTGH"};
+            "WSXQAZERTYU", "WSXEDCFTGBH", "UJNHBGVTFCDR", "ZXCVBNMASDFF", "QAZXSWECDRTF", "VGBYHNUJMKIO", "ZXCASDFRTGHB", "NMJIKLOPERAS", "QAZXSWEFRTGH", "ZNGORUFALM"};
 
     private static final char[] ONE_CHAR_VALUES = {'A', 'B'};
+    private static final int ASCII_RANGE = 256;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -90,7 +91,7 @@ public class StringSort {
             return;
         }
 
-        int i1 = 256; // ASCII range
+        int i1 = ASCII_RANGE;
         int[] count = new int[i1 + 2];
 
         for (int i = low; i <= high; i++) {
