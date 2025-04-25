@@ -48,7 +48,7 @@ class TST {
 
     public boolean contains(String key) {
         TSTNode node = get(root, key, 0);
-        return node == null || !node.isEnd;
+        return node != null && node.isEnd;
     }
 
     private TSTNode get(TSTNode node, String key, int d) {
@@ -92,7 +92,7 @@ public class UniqueSubstrings {
 
                     for (int i = 0; i <= text.length() - l; i++) {
                         String substring = text.substring(i, i + l);
-                        if (tst.contains(substring)) {
+                        if (!tst.contains(substring)) {
                             tst.insert(substring);
                             uniqueSubstringsCount++;
                         }
@@ -126,7 +126,7 @@ public class UniqueSubstrings {
 
         for (int i = 0; i <= testText.length() - testL; i++) {
             String substring = testText.substring(i, i + testL);
-            if (tst.contains(substring)) {
+            if (!tst.contains(substring)) {
                 tst.insert(substring);
                 uniqueSubstringsCount++;
             }
