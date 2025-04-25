@@ -4,6 +4,8 @@ import java.util.*;
 
 public class UniqueSubstrings {
 
+    private static final String UNIQUE_SUBSTRINGS_PREFIX = "Уникальные подстроки: ";
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         SuffixTree tree;
@@ -24,13 +26,14 @@ public class UniqueSubstrings {
                     String text = scanner.nextLine();
                     tree = new SuffixTree(text);
                     System.out.println("Количество уникальных подстрок: " + tree.countUniqueSubstrings());
-                    System.out.println("Уникальные подстроки: " + tree.getUniqueSubstrings());
+                    System.out.println(UNIQUE_SUBSTRINGS_PREFIX + tree.getUniqueSubstrings());
                     break;
                 case 2:
                     runTests();
                     break;
                 case 3:
                     System.out.println("Выход из программы.");
+                    scanner.close();
                     return;
                 default:
                     System.out.println("Некорректный выбор. Попробуйте снова.");
@@ -43,15 +46,15 @@ public class UniqueSubstrings {
 
         SuffixTree tree1 = new SuffixTree("abc");
         System.out.println("Текст: 'abc', Уникальных подстрок: " + tree1.countUniqueSubstrings() + " (ожидается 6)");
-        System.out.println("Уникальные подстроки: " + tree1.getUniqueSubstrings());
+        System.out.println(UNIQUE_SUBSTRINGS_PREFIX + tree1.getUniqueSubstrings());
 
         SuffixTree tree2 = new SuffixTree("aaa");
         System.out.println("Текст: 'aaa', Уникальных подстрок: " + tree2.countUniqueSubstrings() + " (ожидается 3)");
-        System.out.println("Уникальные подстроки: " + tree2.getUniqueSubstrings());
+        System.out.println(UNIQUE_SUBSTRINGS_PREFIX + tree2.getUniqueSubstrings());
 
         SuffixTree tree3 = new SuffixTree("");
         System.out.println("Текст: '', Уникальных подстрок: " + tree3.countUniqueSubstrings() + " (ожидается 0)");
-        System.out.println("Уникальные подстроки: " + tree3.getUniqueSubstrings());
+        System.out.println(UNIQUE_SUBSTRINGS_PREFIX + tree3.getUniqueSubstrings());
     }
 }
 
