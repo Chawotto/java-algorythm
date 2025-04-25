@@ -45,16 +45,7 @@ public class BinaryStringSearch {
         if (m > n) {
             System.out.println("M не может быть больше N.");
         } else {
-            String binaryString = generateRandomBinaryString(n);
-            if (n <= 100) {
-                System.out.println("Сгенерированная строка: " + binaryString);
-            }
-            else {
-                String lastNCharacters = binaryString.substring(n - m);
-                System.out.println("Последние " + m + " символов: " + lastNCharacters);
-            }
-            int count = countOccurrences(binaryString, m);
-            System.out.println("Количество вхождений последних " + m + " битов: " + count);
+            testCase(n, m);
         }
     }
 
