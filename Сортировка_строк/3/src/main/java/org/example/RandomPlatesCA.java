@@ -78,6 +78,9 @@ public class RandomPlatesCA {
     }
 
     private static void lsdSort(String[] a) {
+        if (a == null || a.length == 0) {
+            return;
+        }
         int n = a.length;
         int w = a[0].length();
         String[] aux = new String[n];
