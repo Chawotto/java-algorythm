@@ -3,6 +3,7 @@ package org.example;
 import java.util.*;
 
 public class MSDStringSort {
+    private static final int ASCII_SIZE = 256;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -68,24 +69,7 @@ public class MSDStringSort {
     }
 
     public static List<String> msdStringSort(List<String> strings) {
-        Queue<String>[] queues = new Queue[256];
-        for (int i = 0; i < 256; i++) {
-            queues[i] = new LinkedList<>();
-        }
-
-        for (String str : strings) {
-            queues[str.charAt(0)].add(str);
-        }
-
-        List<String> result = new ArrayList<>();
-        for (Queue<String> queue : queues) {
-            if (!queue.isEmpty()) {
-                List<String> sublist = new ArrayList<>(queue);
-                result.addAll(msdStringSort(sublist, 1));
-            }
-        }
-
-        return result;
+        return msdStringSort(strings, 0);
     }
 
     private static List<String> msdStringSort(List<String> strings, int d) {
@@ -93,8 +77,8 @@ public class MSDStringSort {
             return strings;
         }
 
-        Queue<String>[] queues = new Queue[256];
-        for (int i = 0; i < 256; i++) {
+        Queue<String>[] queues = new Queue[ASCII_SIZE];
+        for (int i = 0; i < ASCII_SIZE; i++) {
             queues[i] = new LinkedList<>();
         }
 
