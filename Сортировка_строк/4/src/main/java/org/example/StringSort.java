@@ -10,9 +10,9 @@ public class StringSort {
             "WERASDFGHJ", "TYUIOPLKJH", "FGHJZXCVBN", "MNBVCXWERT", "YUIOKPLMNB", "OKJHGFDSWE", "ZXCVBNMASD", "PLKJHGFDSA", "WERTYUIOPQ", "CVBNMASDFGH",
             "QWERTZXCVBN", "ASDFGHJKLMN", "ZXCVBNMSDFG", "ERTYUIKJHGF", "QWERTYZXCVB", "PLMNBVCXZAS", "QAZXSDEWCRF", "VTGBYHNUMKI", "POLIKUJMYHB", "JNHBGVTFDCR",
             "WSXQAZERTYU", "WSXEDCFTGBH", "UJNHBGVTFCDR", "ZXCVBNMASDFF", "QAZXSWECDRTF", "VGBYHNUJMKIO", "ZXCASDFRTGHB", "NMJIKLOPERAS", "QAZXSWEFRTGH", "ZNGORUFALM"};
-
     private static final char[] ONE_CHAR_VALUES = {'A', 'B'};
     private static final int ASCII_RANGE = 256;
+    private static final Random RANDOM = new Random();
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -61,18 +61,17 @@ public class StringSort {
     }
 
     public static String[] randomItems(int n) {
-        Random random = new Random();
         String[] result = new String[n];
 
         for (int i = 0; i < n; i++) {
-            String part1 = FIXED_STRINGS_4[random.nextInt(FIXED_STRINGS_4.length)];
-            String part2 = FIXED_STRINGS_10[random.nextInt(FIXED_STRINGS_10.length)];
-            char part3 = ONE_CHAR_VALUES[random.nextInt(ONE_CHAR_VALUES.length)];
+            String part1 = FIXED_STRINGS_4[RANDOM.nextInt(FIXED_STRINGS_4.length)];
+            String part2 = FIXED_STRINGS_10[RANDOM.nextInt(FIXED_STRINGS_10.length)];
+            char part3 = ONE_CHAR_VALUES[RANDOM.nextInt(ONE_CHAR_VALUES.length)];
 
-            int randomLength = 4 + random.nextInt(12);
+            int randomLength = 4 + RANDOM.nextInt(12);
             StringBuilder part4 = new StringBuilder();
             for (int j = 0; j < randomLength; j++) {
-                part4.append((char) ('a' + random.nextInt(26)));
+                part4.append((char) ('a' + RANDOM.nextInt(26)));
             }
 
             result[i] = part1 + part2 + part3 + part4;
