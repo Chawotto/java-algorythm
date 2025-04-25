@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class StringSET {
     private final TrieNode root;
+    private static final String SAMPLE_WORD = "bread";
 
     private static class TrieNode {
         Map<Character, TrieNode> children;
@@ -102,18 +103,18 @@ public class StringSET {
     }
 
     public void demonstrate() {
-        System.out.println("Добавлено: 'bread', 'hello' ");
+        System.out.println("Добавлено: '" + SAMPLE_WORD + "', 'hello' ");
         add("hello");
-        add("bread");
+        add(SAMPLE_WORD);
         System.out.println("Содержит 'hello': " + contains("hello"));
-        System.out.println("Содержит 'bread': " + contains("bread"));
+        System.out.println("Содержит '" + SAMPLE_WORD + "': " + contains(SAMPLE_WORD));
         System.out.println("Содержит 'hell': " + contains("hell"));
         System.out.println("Количество ключей: " + size());
         System.out.println("Пусто: " + isEmpty());
         System.out.println("Строковое представление:");
         System.out.println(this);
-        System.out.println("Удаление 'bread'");
-        remove("bread");
+        System.out.println("Удаление '" + SAMPLE_WORD + "'");
+        remove(SAMPLE_WORD);
         System.out.println("Строковое представление:");
         System.out.println(this);
     }
@@ -167,6 +168,7 @@ public class StringSET {
                     break;
                 case 8:
                     System.out.println("Выход из программы.");
+                    scanner.close();
                     return;
                 default:
                     System.out.println("Неверный выбор. Попробуйте снова.");

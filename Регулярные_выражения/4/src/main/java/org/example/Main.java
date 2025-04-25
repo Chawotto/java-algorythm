@@ -3,6 +3,7 @@ package org.example;
 import java.util.*;
 
 public class Main {
+    private static final String TEST_WORLD = "Тесты для регулярного выражения: ";
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -49,19 +50,19 @@ public class Main {
         NFA nfa2 = new NFA(regex2);
         NFA nfa3 = new NFA(regex3);
 
-        System.out.println("Тесты для регулярного выражения: " + regex1);
+        System.out.println(TEST_WORLD + regex1);
         runTest(regex1, tests1[0], nfa1);  // +
         runTest(regex1, tests1[1], nfa1);  // -
         runTest(regex1, tests1[2], nfa1);  // +
         runTest(regex1, tests1[3], nfa1);  // -
 
-        System.out.println("Тесты для регулярного выражения: " + regex2);
+        System.out.println(TEST_WORLD + regex2);
         runTest(regex2, tests2[0], nfa2);  // +
         runTest(regex2, tests2[1], nfa2);  // +
         runTest(regex2, tests2[2], nfa2);  // +
         runTest(regex2, tests2[3], nfa2);  // -
 
-        System.out.println("Тесты для регулярного выражения: " + regex3);
+        System.out.println(TEST_WORLD + regex3);
         runTest(regex3, tests3[0], nfa3);  // +
         runTest(regex3, tests3[1], nfa3);  // +
         runTest(regex3, tests3[2], nfa3);  // -
