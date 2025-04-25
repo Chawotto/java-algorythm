@@ -41,11 +41,9 @@ public class CyclicPermutationChecker {
         System.out.print("Введите вторую строку: ");
         String str2 = scanner.nextLine();
 
-        if (isCyclicPermutation(str1, str2)) {
-            System.out.println("Строка \"" + str2 + "\" ЯВЛЯЕТСЯ циклической перестановкой строки \"" + str1 + "\".");
-        } else {
-            System.out.println("Строка \"" + str2 + "\" НЕ является циклической перестановкой строки \"" + str1 + "\".");
-        }
+        System.out.println("Строка \"" + str2 + "\" " +
+                (isCyclicPermutation(str1, str2) ? "ЯВЛЯЕТСЯ" : "НЕ является") +
+                " циклической перестановкой строки \"" + str1 + "\".");
     }
 
     private static boolean isCyclicPermutation(String str1, String str2) {
