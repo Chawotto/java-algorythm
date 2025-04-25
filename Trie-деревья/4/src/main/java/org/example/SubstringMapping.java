@@ -5,6 +5,8 @@ import java.util.*;
 
 public class SubstringMapping {
 
+    private static final String RESULT_PREFIX = "Результат: ";
+
     static class TrieNode {
         Map<Character, TrieNode> children = new HashMap<>();
         Set<String> words = new HashSet<>();
@@ -24,7 +26,7 @@ public class SubstringMapping {
                     char c = word.charAt(j);
                     node.children.putIfAbsent(c, new TrieNode());
                     node = node.children.get(c);
-                    node.words.add(word); // Add the full word
+                    node.words.add(word);
                 }
             }
         }
@@ -56,18 +58,17 @@ public class SubstringMapping {
             System.out.println("4. Выход");
             System.out.print("Выберите пункт меню: ");
 
-            int choice = scanner.nextInt();
-            scanner.nextLine();
+            String choice = scanner.nextLine();
 
             switch (choice) {
-                case 1:
+                case "1":
                     System.out.print("Введите строку для добавления: ");
                     String word = scanner.nextLine();
                     trie.insert(word);
                     System.out.println("Строка добавлена!");
                     break;
 
-                case 2:
+                case "2":
                     System.out.print("Введите подстроку для поиска: ");
                     String substring = scanner.nextLine();
                     List<String> results = trie.search(substring);
@@ -79,11 +80,11 @@ public class SubstringMapping {
                     }
                     break;
 
-                case 3:
+                case "3":
                     runTests(trie);
                     break;
 
-                case 4:
+                case "4":
                     running = false;
                     System.out.println("Выход из программы.");
                     break;
@@ -105,15 +106,15 @@ public class SubstringMapping {
         }
 
         System.out.println("Тест 1: Поиск подстроки 'об'");
-        System.out.println("Результат: " + trie.search("об"));
+        System.out.println(RESULT_PREFIX + trie.search("об"));
 
         System.out.println("Тест 2: Поиск подстроки 'еда'");
-        System.out.println("Результат: " + trie.search("еда"));
+        System.out.println(RESULT_PREFIX + trie.search("еда"));
 
         System.out.println("Тест 3: Поиск подстроки 'да'");
-        System.out.println("Результат: " + trie.search("да"));
+        System.out.println(RESULT_PREFIX + trie.search("да"));
 
         System.out.println("Тест 4: Поиск подстроки 'а'");
-        System.out.println("Результат: " + trie.search("а"));
+        System.out.println(RESULT_PREFIX + trie.search("а"));
     }
 }
