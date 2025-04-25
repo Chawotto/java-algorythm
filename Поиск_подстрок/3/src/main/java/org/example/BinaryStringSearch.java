@@ -21,7 +21,15 @@ public class BinaryStringSearch {
 
             switch (choice) {
                 case 1:
-                    handleInput(scanner);
+                    System.out.print("Введите значение M: ");
+                    int m = scanner.nextInt();
+                    System.out.print("Введите значение N: ");
+                    int n = scanner.nextInt();
+                    if (m > n) {
+                        System.out.println("M не может быть больше N.");
+                    } else {
+                        testCase(n, m);
+                    }
                     break;
                 case 2:
                     runTests();
@@ -37,18 +45,6 @@ public class BinaryStringSearch {
         scanner.close();
     }
 
-    private static void handleInput(Scanner scanner) {
-        System.out.print("Введите значение M: ");
-        int m = scanner.nextInt();
-        System.out.print("Введите значение N: ");
-        int n = scanner.nextInt();
-        if (m > n) {
-            System.out.println("M не может быть больше N.");
-        } else {
-            testCase(n, m);
-        }
-    }
-
     public static String generateRandomBinaryString(int length) {
         StringBuilder binaryString = new StringBuilder(length);
         for (int i = 0; i < length; i++) {
@@ -58,18 +54,18 @@ public class BinaryStringSearch {
     }
 
     public static int countOccurrences(String binaryString, int m) {
+        String target = binaryString.substring(binaryString.length() - m);
         if (m < 5) {
-            return countOccurrencesSimple(binaryString, m);
+            return countOccurrencesSimple(binaryString, target, m);
         } else if (m < 10) {
-            return countOccurrencesKMP(binaryString, m);
+            return countOccurrencesKMP(binaryString, target, m);
         } else {
-            return countOccurrencesRabinKarp(binaryString, m);
+            return countOccurrencesRabinKarp(binaryString, target, m);
         }
     }
 
-    public static int countOccurrencesSimple(String binaryString, int m) {
+    public static int countOccurrencesSimple(String binaryString, String target, int m) {
         int count = 0;
-        String target = binaryString.substring(binaryString.length() - m);
         for (int i = 0; i <= binaryString.length() - m; i++) {
             if (binaryString.substring(i, i + m).equals(target)) {
                 count++;
@@ -78,8 +74,7 @@ public class BinaryStringSearch {
         return count;
     }
 
-    public static int countOccurrencesKMP(String binaryString, int m) {
-        String target = binaryString.substring(binaryString.length() - m);
+    public static int countOccurrencesKMP(String binaryString, String target, int m) {
         int[] lps = computeLPSArray(target);
         int count = 0;
         int i = 0;
@@ -125,8 +120,7 @@ public class BinaryStringSearch {
         return lps;
     }
 
-    public static int countOccurrencesRabinKarp(String binaryString, int m) {
-        String target = binaryString.substring(binaryString.length() - m);
+    public static int countOccurrencesRabinKarp(String binaryString, String target, int m) {
         int q = 101;
         int d = 2;
         int h = computeHashBase(d, m - 1, q);
@@ -196,8 +190,7 @@ public class BinaryStringSearch {
         System.out.println(", M = " + m);
         if (n <= 100) {
             System.out.println("Сгенерированная строка: " + binaryString);
-        }
-        else {
+        } else {
             String lastNCharacters = binaryString.substring(n - m);
             System.out.println("Последние " + m + " символов: " + lastNCharacters);
         }
