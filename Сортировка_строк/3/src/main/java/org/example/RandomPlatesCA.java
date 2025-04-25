@@ -8,6 +8,12 @@ public class RandomPlatesCA {
     private static final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private static final String DIGITS = "0123456789";
     private static final Random RANDOM = new Random();
+    private static final int LETTERS_COUNT = 3;
+    private static final int DIGITS_COUNT = 3;
+    private static final int ASCII_SIZE = 256;
+    private static final int TEST1_PLATES = 5;
+    private static final int TEST2_PLATES = 10;
+    private static final int TEST3_PLATES = 15;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -50,10 +56,10 @@ public class RandomPlatesCA {
     private static String generateRandomPlate() {
         StringBuilder plate = new StringBuilder();
         plate.append(DIGITS.charAt(RANDOM.nextInt(DIGITS.length())));
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < LETTERS_COUNT; i++) {
             plate.append(CHARACTERS.charAt(RANDOM.nextInt(CHARACTERS.length())));
         }
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < DIGITS_COUNT; i++) {
             plate.append(DIGITS.charAt(RANDOM.nextInt(DIGITS.length())));
         }
         return plate.toString();
@@ -61,13 +67,13 @@ public class RandomPlatesCA {
 
     private static void predefinedTests() {
         System.out.println("Тесты:");
-        String[] testPlates1 = randomPlatesCA(5);
+        String[] testPlates1 = randomPlatesCA(TEST1_PLATES);
         System.out.println("Тест 1: " + java.util.Arrays.toString(testPlates1));
 
-        String[] testPlates2 = randomPlatesCA(10);
+        String[] testPlates2 = randomPlatesCA(TEST2_PLATES);
         System.out.println("Тест 2: " + java.util.Arrays.toString(testPlates2));
 
-        String[] testPlates3 = randomPlatesCA(15);
+        String[] testPlates3 = randomPlatesCA(TEST3_PLATES);
         System.out.println("Тест 3: " + java.util.Arrays.toString(testPlates3));
     }
 
@@ -77,13 +83,13 @@ public class RandomPlatesCA {
         String[] aux = new String[n];
 
         for (int d = w - 1; d >= 0; d--) {
-            int[] count = new int[256 + 1];
+            int[] count = new int[ASCII_SIZE + 1];
 
             for (int i = 0; i < n; i++) {
                 count[a[i].charAt(d) + 1]++;
             }
 
-            for (int r = 0; r < 256; r++) {
+            for (int r = 0; r < ASCII_SIZE; r++) {
                 count[r + 1] += count[r];
             }
 
