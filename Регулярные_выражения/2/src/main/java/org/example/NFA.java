@@ -3,29 +3,29 @@ package org.example;
 import java.util.*;
 
 public class NFA {
-    private final char[] r;
-    private final Digraph g;
-    private final int m;
+    private final char[] regexpArr;
+    private final Digraph digraph;
+    private final int regexpLen;
 
     public NFA(String regexp) {
         Deque<Integer> ops = new ArrayDeque<>();
-        r = regexp.toCharArray();
-        m = r.length;
-        g = new Digraph(m + 1);
+        regexpArr = regexp.toCharArray();
+        regexpLen = regexpArr.length;
+        digraph = new Digraph(regexpLen + 1);
 
-        for (int i = 0; i < m; i++) {
+        for (int i = 0; i < regexpLen; i++) {
             int lp = i;
 
-            switch (r[i]) {
+            switch (regexpArr[i]) {
                 case '(', '|':
                     ops.push(i);
                     break;
                 case ')':
                     int or = ops.pop();
-                    if (r[or] == '|') {
+                    if (regexpArr[or] == '|') {
                         lp = ops.pop();
-                        g.addEdge(lp, or + 1);
-                        g.addEdge(or, i);
+                        digraph.addEdge(lp, or + 1);
+                        digraph.addEdge(or, i);
                     } else {
                         lp = or;
                     }
@@ -34,13 +34,13 @@ public class NFA {
                     break;
             }
 
-            if (i < m - 1 && r[i + 1] == '*') {
-                g.addEdge(lp, i + 1);
-                g.addEdge(i + 1, lp);
+            if (i < regexpLen - 1 && regexpArr[i + 1] == '*') {
+                digraph.addEdge(lp, i + 1);
+                digraph.addEdge(i + 1, lp);
             }
 
-            if (r[i] == '(' || r[i] == ')' || r[i] == '*' || r[i] == '|') {
-                g.addEdge(i, i + 1);
+            if (regexpArr[i] == '(' || regexpArr[i] == ')' || regexpArr[i] == '*' || regexpArr[i] == '|') {
+                digraph.addEdge(i, i + 1);
             }
         }
     }
@@ -52,14 +52,14 @@ public class NFA {
             pc = updatePc(pc, txt.charAt(i));
         }
 
-        return pc.contains(m);
+        return pc.contains(regexpLen);
     }
 
     private Bag<Integer> initializePc() {
         Bag<Integer> pc = new Bag<>();
-        DirectedDFS dfs = new DirectedDFS(g, 0);
+        DirectedDFS dfs = new DirectedDFS(digraph, 0);
 
-        for (int v = 0; v < g.v(); v++) {
+        for (int v = 0; v < digraph.v(); v++) {
             if (dfs.marked(v)) {
                 pc.add(v);
             }
@@ -71,15 +71,15 @@ public class NFA {
         Bag<Integer> match = new Bag<>();
 
         for (int v : pc) {
-            if (v < m && (r[v] == c || r[v] == '.')) {
+            if (v < regexpLen && (regexpArr[v] == c || regexpArr[v] == '.')) {
                 match.add(v + 1);
             }
         }
 
         pc = new Bag<>();
-        DirectedDFS dfs = new DirectedDFS(g, match);
+        DirectedDFS dfs = new DirectedDFS(digraph, match);
 
-        for (int v = 0; v < g.v(); v++) {
+        for (int v = 0; v < digraph.v(); v++) {
             if (dfs.marked(v)) {
                 pc.add(v);
             }
@@ -146,7 +146,7 @@ public class NFA {
         }
     }
 
-    private static class Bag<NAME> extends ArrayList<NAME> {
+    private static class Bag<N> extends ArrayList<N> {
     }
 
     public static void main(String[] args) {
