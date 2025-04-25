@@ -3,48 +3,64 @@ package org.example;
 import java.util.*;
 
 public class NFA {
-    private final char[] re;
-    private final Digraph g;
-    private final int m;
+    private final char[] regexpArr;
+    private final Digraph digraph;
+    private final int regexpLen;
     private static final String FALSE_STRING = "false";
 
     public NFA(String regexp) {
         Deque<Integer> ops = new ArrayDeque<>();
-        re = regexp.toCharArray();
-        m = re.length;
-        g = new Digraph(m + 1);
+        regexpArr = regexp.toCharArray();
+        regexpLen = regexpArr.length;
+        digraph = new Digraph(regexpLen + 1);
 
-        for (int i = 0; i < m; i++) {
+        int i = 0;
+        while (i < regexpLen) {
             int lp = i;
 
-            if (re[i] == '(' || re[i] == '|') {
-                ops.push(i);
-            } else if (re[i] == ')') {
-                int or = ops.pop();
+            if (regexpArr[i] == '[') {
+                i = processRange(i);
+            } else {
+                lp = processOperator(ops, i, lp);
 
-                if (re[or] == '|') {
-                    lp = ops.pop();
-                    g.addEdge(lp, or + 1);
-                    g.addEdge(or, i);
-                } else {
-                    lp = or;
+                if (i < regexpLen - 1 && regexpArr[i + 1] == '*') {
+                    digraph.addEdge(lp, i + 1);
+                    digraph.addEdge(i + 1, lp);
                 }
-            } else if (re[i] == '[') {
-                int rangeEnd = i;
-                while (re[rangeEnd] != ']') rangeEnd++;
-                g.addEdge(i, rangeEnd);
-                i = rangeEnd;
-            }
 
-            if (i < m - 1 && re[i + 1] == '*') {
-                g.addEdge(lp, i + 1);
-                g.addEdge(i + 1, lp);
-            }
-
-            if (isOperator(re[i])) {
-                g.addEdge(i, i + 1);
+                if (isOperator(regexpArr[i])) {
+                    digraph.addEdge(i, i + 1);
+                }
+                i++;
             }
         }
+    }
+
+    private int processRange(int start) {
+        int rangeEnd = start;
+        while (rangeEnd < regexpLen && regexpArr[rangeEnd] != ']') {
+            rangeEnd++;
+        }
+        if (rangeEnd < regexpLen) {
+            digraph.addEdge(start, rangeEnd);
+        }
+        return rangeEnd + 1;
+    }
+
+    private int processOperator(Deque<Integer> ops, int i, int lp) {
+        if (regexpArr[i] == '(' || regexpArr[i] == '|') {
+            ops.push(i);
+        } else if (regexpArr[i] == ')') {
+            int or = ops.pop();
+            if (regexpArr[or] == '|') {
+                lp = ops.pop();
+                digraph.addEdge(lp, or + 1);
+                digraph.addEdge(or, i);
+            } else {
+                lp = or;
+            }
+        }
+        return lp;
     }
 
     private boolean isOperator(char c) {
@@ -63,9 +79,9 @@ public class NFA {
 
     private Bag<Integer> initializePC() {
         Bag<Integer> pc = new Bag<>();
-        DirectedDFS dfs = new DirectedDFS(g, 0);
+        DirectedDFS dfs = new DirectedDFS(digraph, 0);
 
-        for (int v = 0; v < g.v(); v++) {
+        for (int v = 0; v < digraph.v(); v++) {
             if (dfs.marked(v)) pc.add(v);
         }
         return pc;
@@ -75,12 +91,12 @@ public class NFA {
         Bag<Integer> match = new Bag<>();
 
         for (int v : pc) {
-            if (v < m) {
-                if (re[v] == c || re[v] == '.') {
+            if (v < regexpLen) {
+                if (regexpArr[v] == c || regexpArr[v] == '.') {
                     match.add(v + 1);
-                } else if (re[v] == '[') {
+                } else if (regexpArr[v] == '[') {
                     int rangeEnd = findRangeEnd(v);
-                    if (isInRange(re, v, rangeEnd, c)) {
+                    if (isInRange(regexpArr, v, rangeEnd, c)) {
                         match.add(rangeEnd + 1);
                     }
                 }
@@ -92,15 +108,15 @@ public class NFA {
 
     private int findRangeEnd(int start) {
         int rangeEnd = start;
-        while (re[rangeEnd] != ']') rangeEnd++;
+        while (rangeEnd < regexpLen && regexpArr[rangeEnd] != ']') rangeEnd++;
         return rangeEnd;
     }
 
     private Bag<Integer> computeReachableStates(Bag<Integer> match) {
         Bag<Integer> pc = new Bag<>();
-        DirectedDFS dfs = new DirectedDFS(g, match);
+        DirectedDFS dfs = new DirectedDFS(digraph, match);
 
-        for (int v = 0; v < g.v(); v++) {
+        for (int v = 0; v < digraph.v(); v++) {
             if (dfs.marked(v)) pc.add(v);
         }
         return pc;
@@ -108,7 +124,7 @@ public class NFA {
 
     private boolean containsAcceptState(Bag<Integer> pc) {
         for (int v : pc) {
-            if (v == m) return true;
+            if (v == regexpLen) return true;
         }
         return false;
     }
@@ -174,7 +190,7 @@ public class NFA {
         }
     }
 
-    private static class Bag<Item> extends ArrayList<Item> {
+    private static class Bag<I> extends ArrayList<I> {
     }
 
     public static void main(String[] args) {
