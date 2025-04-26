@@ -41,14 +41,17 @@ public class Main {
         String regex1 = "(a|b)*c";
         String regex2 = "a*b+";
         String regex3 = "a(b|c)*d";
+        String regex4 = "[^abc]*";
 
         String[] tests1 = {"aababc", "aabb", "abac", "b"};
         String[] tests2 = {"aab", "ab", "b", "a"};
         String[] tests3 = {"abcd", "ad", "abbcdd", "a"};
+        String[] tests4 = {"kghd", "hfura", "uioerth", "gfbclas"};
 
         NFA nfa1 = new NFA(regex1);
         NFA nfa2 = new NFA(regex2);
         NFA nfa3 = new NFA(regex3);
+        NFA nfa4 = new NFA(regex4);
 
         System.out.println(TEST_WORLD + regex1);
         runTest(regex1, tests1[0], nfa1);  // +
@@ -67,6 +70,12 @@ public class Main {
         runTest(regex3, tests3[1], nfa3);  // +
         runTest(regex3, tests3[2], nfa3);  // -
         runTest(regex3, tests3[3], nfa3);  // -
+
+        System.out.println(TEST_WORLD + regex4);
+        runTest(regex4, tests4[0], nfa4);  // +
+        runTest(regex4, tests4[1], nfa4);  // -
+        runTest(regex4, tests4[2], nfa4);  // +
+        runTest(regex4, tests4[3], nfa4);  // -
     }
 
     private static void runTest(String regex, String text, NFA nfa) {
@@ -79,55 +88,95 @@ class NFA {
     private final char[] regex;
     private final Digraph graph;
     private final int states;
+    private final Set<Integer> complementStates;
 
     public NFA(String pattern) {
-        Deque<Integer> operators = new ArrayDeque<>();
+        complementStates = new HashSet<>();
         regex = pattern.toCharArray();
         states = regex.length;
         graph = new Digraph(states + 1);
+        buildGraph();
+    }
 
-        for (int i = 0; i < states; i++) {
-            int left = i;
+    private void buildGraph() {
+        Deque<Integer> operators = new ArrayDeque<>();
+        int i = 0;
+        while (i < states) {
+            i = processState(i, operators) + 1;
+        }
+    }
 
-            if (regex[i] == '(' || regex[i] == '|') {
-                operators.push(i);
-            } else if (regex[i] == ')') {
-                int or = operators.pop();
-
-                if (regex[or] == '|') {
-                    left = operators.pop();
-                    graph.addEdge(left, or + 1);
-                    graph.addEdge(or, i);
-                } else {
-                    left = or;
-                }
+    private int processState(int i, Deque<Integer> operators) {
+        int left = i;
+        if (isOperator(regex[i])) {
+            operators.push(i);
+        } else if (regex[i] == ')') {
+            left = handleClosingParenthesis(i, operators);
+        } else if (isComplementStart(i)) {
+            complementStates.add(i);
+            i = findComplementEnd(i);
+            if (i == states) {
+                throw new IllegalArgumentException("Некорректный описатель дополнения");
             }
+        }
 
-            if (i < states - 1 && regex[i + 1] == '*') {
-                graph.addEdge(left, i + 1);
-                graph.addEdge(i + 1, left);
-            }
+        handleKleeneStar(i, left);
+        addTransitionForSpecialChars(i);
+        return i;
+    }
 
-            if (regex[i] == '(' || regex[i] == '*' || regex[i] == ')') {
-                graph.addEdge(i, i + 1);
+    private boolean isOperator(char c) {
+        return c == '(' || c == '|';
+    }
+
+    private int handleClosingParenthesis(int i, Deque<Integer> operators) {
+        int or = operators.pop();
+        int left = or;
+        if (regex[or] == '|') {
+            left = operators.pop();
+            graph.addEdge(left, or + 1);
+            graph.addEdge(or, i);
+        }
+        return left;
+    }
+
+    private boolean isComplementStart(int i) {
+        return regex[i] == '[' && i + 1 < states && regex[i + 1] == '^';
+    }
+
+    private int findComplementEnd(int i) {
+        for (int j = i; j < states; j++) {
+            if (regex[j] == ']') {
+                return j;
             }
+        }
+        return states;
+    }
+
+    private void handleKleeneStar(int i, int left) {
+        if (i < states - 1 && regex[i + 1] == '*') {
+            graph.addEdge(left, i + 1);
+            graph.addEdge(i + 1, left);
+        }
+    }
+
+    private void addTransitionForSpecialChars(int i) {
+        if (regex[i] == '(' || regex[i] == '*' || regex[i] == ')' || regex[i] == ']') {
+            graph.addEdge(i, i + 1);
         }
     }
 
     public boolean recognizes(String text) {
         Set<Integer> currentStates = getInitialStates();
-
         for (int i = 0; i < text.length(); i++) {
             currentStates = getNextStates(currentStates, text.charAt(i));
         }
-
         return isFinalStateReached(currentStates);
     }
 
     private Set<Integer> getInitialStates() {
         Set<Integer> initialStates = new HashSet<>();
         DirectedDFS dfs = new DirectedDFS(graph, 0);
-
         for (int v = 0; v < graph.vertexCount(); v++) {
             if (dfs.marked(v)) {
                 initialStates.add(v);
@@ -138,13 +187,37 @@ class NFA {
 
     private Set<Integer> getNextStates(Set<Integer> currentStates, char currentChar) {
         Set<Integer> nextStates = new HashSet<>();
-
         for (int state : currentStates) {
-            if (state < states && (regex[state] == currentChar || regex[state] == '.')) {
-                nextStates.add(state + 1);
+            if (state >= states) continue;
+            processStateTransition(state, currentChar, nextStates);
+        }
+        return updateStatesWithDFS(nextStates);
+    }
+
+    private void processStateTransition(int state, char currentChar, Set<Integer> nextStates) {
+        if (complementStates.contains(state) && regex[state] == '[') {
+            handleComplementState(state, currentChar, nextStates);
+        } else if (regex[state] == currentChar || regex[state] == '.') {
+            nextStates.add(state + 1);
+        }
+    }
+
+    private void handleComplementState(int state, char currentChar, Set<Integer> nextStates) {
+        int i = state + 2;
+        for (int j = i; j < states && regex[j] != ']'; j++) {
+            if (regex[j] == currentChar) {
+                return;
             }
         }
+        if (i < states && regex[i - 1] == '^' && regex[i - 2] == '[') {
+            int end = findComplementEnd(state);
+            if (end < states && regex[end] == ']') {
+                nextStates.add(end + 1);
+            }
+        }
+    }
 
+    private Set<Integer> updateStatesWithDFS(Set<Integer> nextStates) {
         DirectedDFS dfs = new DirectedDFS(graph, nextStates);
         Set<Integer> updatedStates = new HashSet<>();
         for (int v = 0; v < graph.vertexCount(); v++) {
@@ -152,7 +225,6 @@ class NFA {
                 updatedStates.add(v);
             }
         }
-
         return updatedStates;
     }
 
@@ -165,6 +237,7 @@ class NFA {
         return false;
     }
 }
+
 
 class Digraph {
     private final List<Integer>[] adjacencyList;
