@@ -12,13 +12,19 @@ public class KMPSearch {
         int[] pi = new int[m];
         int k = 0;
         for (int q = 1; q < m; q++) {
-            k = getQ(pattern, pattern, pi, k, q);
+            while (k > 0 && pattern.charAt(k) != pattern.charAt(q)) {
+                k = pi[k - 1];
+            }
+            if (pattern.charAt(k) == pattern.charAt(q)) {
+                k++;
+            }
             pi[q] = k;
         }
         return pi;
     }
 
     public void search(String text, String pattern) {
+        resetComparisons();
         int n = text.length();
         int m = pattern.length();
         int[] pi = computePrefixFunction(pattern);
@@ -33,17 +39,18 @@ public class KMPSearch {
 
     private int getQ(String text, String pattern, int[] pi, int q, int i) {
         while (q > 0 && pattern.charAt(q) != text.charAt(i)) {
-            q = pi[q - 1];
             comparisons++;
+            q = pi[q - 1];
         }
+        comparisons++;
+
         if (pattern.charAt(q) == text.charAt(i)) {
             q++;
-            comparisons++;
         }
         return q;
     }
 
-    public void resetComparisons() {
+    private void resetComparisons() {
         comparisons = 0;
     }
 
@@ -93,11 +100,11 @@ public class KMPSearch {
         int totalComparisons = 0;
 
         for (int i = 0; i < t; i++) {
-            StringBuilder pattern = generateRandomString(m, random);
-            StringBuilder text = generateRandomString(n, random);
-            kmp.resetComparisons();
-            kmp.search(text.toString(), pattern.toString());
+            String pattern = generateRandomString(m, random);
+            String text = generateRandomString(n, random);
+            kmp.search(text, pattern);
             totalComparisons += kmp.getComparisons();
+            System.out.printf("Тест %d: Образец '%s', Текст '%s'%n", i + 1, pattern, text);
         }
 
         double averageComparisons = (double) totalComparisons / t;
@@ -107,19 +114,21 @@ public class KMPSearch {
     private static void runTests(Random random, KMPSearch kmp) {
         System.out.println("Тест программы:");
         for (int i = 0; i < 5; i++) {
-            StringBuilder randomPattern = generateRandomString(3 + random.nextInt(5), random);
-            StringBuilder randomText = generateRandomString(10 + random.nextInt(15), random);
-            kmp.resetComparisons();
-            kmp.search(randomText.toString(), randomPattern.toString());
-            System.out.printf("Тест %d: Образец '%s', Текст '%s', Количество сравнений: %d%n", i + 1, randomPattern, randomText, kmp.getComparisons());
+            int patternLength = 3 + random.nextInt(5);
+            int textLength = 10 + random.nextInt(15);
+            String pattern = generateRandomString(patternLength, random);
+            String text = generateRandomString(textLength, random);
+            kmp.search(text, pattern);
+            System.out.printf("Тест %d: Образец '%s', Текст '%s', Количество сравнений: %d%n",
+                    i + 1, pattern, text, kmp.getComparisons());
         }
     }
 
-    private static StringBuilder generateRandomString(int length, Random random) {
+    private static String generateRandomString(int length, Random random) {
         StringBuilder sb = new StringBuilder(length);
         for (int j = 0; j < length; j++) {
             sb.append((char) ('a' + random.nextInt(26)));
         }
-        return sb;
+        return sb.toString();
     }
 }
