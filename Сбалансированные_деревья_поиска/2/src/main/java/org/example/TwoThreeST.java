@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 class Node {
@@ -24,70 +25,140 @@ class Node {
 
 public class TwoThreeST {
     private Node root;
+    public static final String TEST = "Вставка ключа:";
 
     public TwoThreeST() {
         this.root = null;
     }
 
     public void insert(int key) {
-        root = insert(root, key);
+        if (root == null) {
+            root = new Node(key);
+            display();
+            return;
+        }
+
+        ArrayList<Node> path = new ArrayList<>();
+        Node current = findLeaf(key, path);
+
+        if (current.is2Node) {
+            Node newNode = convertTo3Node(current, key);
+            updateNodeReference(current, newNode, path);
+        } else {
+            splitLeafAndPropagate(current, key, path);
+        }
+
         display();
     }
 
-    private Node insert(Node node, int key) {
-        if (node == null) {
-            return new Node(key);
-        }
-
-        if (node.is2Node) {
-            if (key < node.key1) {
-                node.left = insert(node.left, key);
+    private Node findLeaf(int key, ArrayList<Node> path) {
+        Node current = root;
+        while (current.left != null) {
+            path.add(current);
+            if (current.is2Node) {
+                current = (key < current.key1) ? current.left : current.right;
             } else {
-                node.right = insert(node.right, key);
-            }
-        } else {
-            if (key < node.key1) {
-                node.left = insert(node.left, key);
-            } else if (key < node.key2) {
-                node.middle = insert(node.middle, key);
-            } else {
-                node.right = insert(node.right, key);
+                if (key < current.key1) {
+                    current = current.left;
+                } else if (key < current.key2) {
+                    current = current.middle;
+                } else {
+                    current = current.right;
+                }
             }
         }
-
-        if (node.left != null && !node.left.is2Node) {
-            return split(node);
-        }
-
-        return node;
+        return current;
     }
 
-    private Node split(Node node) {
-        int key1 = node.left.key1;
-        int key2 = node.left.key2;
-        Node left = node.left.left;
-        Node middle = node.left.middle;
-        Node right = node.left.right;
+    private Node convertTo3Node(Node node, int key) {
+        int newKey1 = Math.min(node.key1, key);
+        int newKey2 = Math.max(node.key1, key);
+        Node newNode = new Node(newKey1, newKey2);
 
-        if (node.is2Node) {
-            node.is2Node = false;
-            node.key2 = node.key1;
-            node.key1 = key2;
-            node.middle = node.right;
-            node.right = right;
-            node.left = new Node(key1);
-            node.left.left = left;
-            node.left.right = middle;
-        } else {
-            Node newNode = new Node(key2);
-            newNode.left = middle;
-            newNode.right = right;
-            node.key2 = key1;
-            node.middle = left;
-            return newNode;
+        newNode.left = node.left;
+        newNode.middle = node.middle;
+        newNode.right = node.right;
+
+        return newNode;
+    }
+
+    private void updateNodeReference(Node oldNode, Node newNode, ArrayList<Node> path) {
+        if (path.isEmpty()) {
+            root = newNode;
+            return;
         }
 
-        return node;
+        Node parent = path.get(path.size() - 1);
+        if (parent.is2Node) {
+            if (parent.left == oldNode) {
+                parent.left = newNode;
+            } else {
+                parent.right = newNode;
+            }
+        } else {
+            if (parent.left == oldNode) {
+                parent.left = newNode;
+            } else if (parent.middle == oldNode) {
+                parent.middle = newNode;
+            } else {
+                parent.right = newNode;
+            }
+        }
+    }
+
+    private void splitLeafAndPropagate(Node node, int key, ArrayList<Node> path) {
+        int[] keys = {node.key1, node.key2, key};
+        java.util.Arrays.sort(keys);
+        int middleKey = keys[1];
+        Node leftNode = new Node(keys[0]);
+        Node rightNode = new Node(keys[2]);
+
+        propagateSplit(middleKey, leftNode, rightNode, path);
+    }
+
+    private void propagateSplit(int middleKey, Node leftNode, Node rightNode, ArrayList<Node> path) {
+        if (path.isEmpty()) {
+            root = new Node(middleKey);
+            root.left = leftNode;
+            root.right = rightNode;
+            return;
+        }
+
+        Node parent = path.remove(path.size() - 1);
+        if (parent.is2Node) {
+            insertInto2NodeParent(parent, middleKey, leftNode, rightNode);
+        } else {
+            split3NodeParent(parent, middleKey, leftNode, rightNode, path);
+        }
+    }
+
+    private void insertInto2NodeParent(Node parent, int middleKey, Node leftNode, Node rightNode) {
+        if (middleKey < parent.key1) {
+            parent.key2 = parent.key1;
+            parent.key1 = middleKey;
+            parent.middle = parent.right;
+            parent.left = leftNode;
+            parent.right = rightNode;
+        } else {
+            parent.key2 = middleKey;
+            parent.middle = leftNode;
+            parent.right = rightNode;
+        }
+        parent.is2Node = false;
+    }
+
+    private void split3NodeParent(Node parent, int middleKey, Node leftNode, Node rightNode, ArrayList<Node> path) {
+        int[] parentKeys = {parent.key1, parent.key2, middleKey};
+        java.util.Arrays.sort(parentKeys);
+        middleKey = parentKeys[1];
+        Node newLeft = new Node(parentKeys[0]);
+        Node newRight = new Node(parentKeys[2]);
+        newLeft.left = parent.left;
+        newLeft.right = (middleKey < parent.key1) ? leftNode : parent.middle;
+        newRight.left = (middleKey < parent.key1) ? parent.middle : leftNode;
+        newRight.right = rightNode;
+
+        propagateSplit(middleKey, newLeft, newRight, path);
     }
 
     public boolean search(int key) {
@@ -100,25 +171,15 @@ public class TwoThreeST {
         if (node == null) {
             return false;
         }
-
         if (node.is2Node) {
-            if (key == node.key1) {
-                return true;
-            } else if (key < node.key1) {
-                return search(node.left, key);
-            } else {
-                return search(node.right, key);
-            }
+            if (key == node.key1) return true;
+            if (key < node.key1) return search(node.left, key);
+            return search(node.right, key);
         } else {
-            if (key == node.key1 || key == node.key2) {
-                return true;
-            } else if (key < node.key1) {
-                return search(node.left, key);
-            } else if (key < node.key2) {
-                return search(node.middle, key);
-            } else {
-                return search(node.right, key);
-            }
+            if (key == node.key1 || key == node.key2) return true;
+            if (key < node.key1) return search(node.left, key);
+            if (key < node.key2) return search(node.middle, key);
+            return search(node.right, key);
         }
     }
 
@@ -139,11 +200,38 @@ public class TwoThreeST {
 
     public void runTests() {
         TwoThreeST tree = new TwoThreeST();
-        int[] keysToInsert = {25, 20, 5, 6, 12, 30, 7, 3, 23, 89, 12, 44, 54, 17, 33, 41, 24, 21, 67, 99, 10 };
+        System.out.println("=== Начало тестов для 2-3 дерева ===");
 
-        for (int key : keysToInsert) {
+        System.out.println("Тест 1: Вставка ключей [10, 20, 30]");
+        int[] keys1 = {10, 20, 30};
+        for (int key : keys1) {
+            System.out.println(TEST + key);
             tree.insert(key);
         }
+        System.out.println("Поиск ключа 20: " + tree.search(20));
+        System.out.println("Поиск ключа 15: " + tree.search(15));
+
+        tree = new TwoThreeST();
+        System.out.println("\nТест 2: Вставка ключей с разделением узлов [5, 15, 25, 10, 20]");
+        int[] keys2 = {5, 15, 25, 10, 20};
+        for (int key : keys2) {
+            System.out.println(TEST + key);
+            tree.insert(key);
+        }
+        System.out.println("Поиск ключа 10: " + tree.search(10));
+        System.out.println("Поиск ключа 30: " + tree.search(30));
+
+        tree = new TwoThreeST();
+        System.out.println("\nТест 3: Вставка большего набора ключей [25, 20, 5, 6, 12, 30, 7, 3]");
+        int[] keys3 = {25, 20, 5, 6, 12, 30, 7, 3};
+        for (int key : keys3) {
+            System.out.println(TEST + key);
+            tree.insert(key);
+        }
+        System.out.println("Поиск ключа 12: " + tree.search(12));
+        System.out.println("Поиск ключа 99: " + tree.search(99));
+
+        System.out.println("=== Конец тестов ===");
     }
 
     public static void main(String[] args) {
