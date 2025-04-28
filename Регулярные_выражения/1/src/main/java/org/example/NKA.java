@@ -67,80 +67,128 @@ public class NKA {
         private Set<State> move(Set<State> states, char symbol) {
             Set<State> nextStates = new HashSet<>();
             for (State state : states) {
-                List<State> transitions = state.transitions.getOrDefault(symbol, Collections.emptyList());
+                List<State> transitions = state.transitions.getOrDefault(symbol,
+                        state.transitions.getOrDefault('.', Collections.emptyList()));
                 nextStates.addAll(transitions);
             }
             return nextStates;
         }
     }
 
-    static Automaton buildNKA() {
-        State s0 = new State(0);
-        State s1 = new State(1);
-        State s2 = new State(2);
-        State s3 = new State(3);
-        State s4 = new State(4);
-        State s5 = new State(5);
-        State s6 = new State(6);
-        State s7 = new State(7);
-        State s8 = new State(8);
-        State s9 = new State(9);
-        State s10 = new State(10);
-        State s11 = new State(11);
-        State s12 = new State(12);
-        State s13 = new State(13);
-        State s14 = new State(14);
-        State s15 = new State(15);
-        State s16 = new State(16);
-        State s17 = new State(17);
+    private char[] re;
+    private List<State> states;
+    private Automaton automaton;
 
-        s0.addEpsilonTransition(s1);
-        s1.addEpsilonTransition(s2);
-        s2.addTransition('.', s2);
-        s2.addEpsilonTransition(s3);
-        s3.addTransition('A', s4);
-        s4.addTransition('B', s5);
-        s5.addEpsilonTransition(s6);
-        s6.addEpsilonTransition(s7);
-        s6.addEpsilonTransition(s11);
+    public NKA(String regexp) {
+        re = regexp.toCharArray();
+        states = new ArrayList<>();
+        Deque<Integer> ops = new ArrayDeque<>();
+        Deque<Integer> orSplits = new ArrayDeque<>();
+        int m = re.length;
 
-        s7.addTransition('C', s8);
-        s8.addEpsilonTransition(s9);
-        s9.addTransition('F', s10);
-        s10.addEpsilonTransition(s15);
+        initializeStates(m);
+        processRegularExpression(m, ops, orSplits);
+        finalizeAutomaton();
+    }
 
-        s11.addTransition('D', s12);
-        s12.addEpsilonTransition(s13);
-        s13.addTransition('F', s14);
-        s14.addEpsilonTransition(s15);
+    private void initializeStates(int m) {
+        for (int i = 0; i <= m; i++) {
+            states.add(new State(i));
+        }
+        states.get(m).isFinal = true;
+    }
 
-        s15.addEpsilonTransition(s6);
-        s15.addTransition('G', s16);
-        s16.addEpsilonTransition(s17);
+    private void processRegularExpression(int m, Deque<Integer> ops, Deque<Integer> orSplits) {
+        for (int i = 0; i < m; i++) {
+            int lp = i;
 
-        s17.isFinal = true;
+            if (re[i] == '(') {
+                handleOpenParenthesis(i, ops, orSplits);
+            } else if (re[i] == '|') {
+                ops.push(i);
+            } else if (re[i] == ')') {
+                lp = handleCloseParenthesis(i, ops, orSplits);
+            }
 
-        Automaton automaton = new Automaton(s0);
-        automaton.addState(s0);
-        automaton.addState(s1);
-        automaton.addState(s2);
-        automaton.addState(s3);
-        automaton.addState(s4);
-        automaton.addState(s5);
-        automaton.addState(s6);
-        automaton.addState(s7);
-        automaton.addState(s8);
-        automaton.addState(s9);
-        automaton.addState(s10);
-        automaton.addState(s11);
-        automaton.addState(s12);
-        automaton.addState(s13);
-        automaton.addState(s14);
-        automaton.addState(s15);
-        automaton.addState(s16);
-        automaton.addState(s17);
+            if (i < m - 1 && re[i + 1] == '*') {
+                handleStarOperator(i, lp);
+            }
 
-        return automaton;
+            addTransitionForCurrentState(i);
+        }
+    }
+
+    private void handleOpenParenthesis(int i, Deque<Integer> ops, Deque<Integer> orSplits) {
+        ops.push(i);
+        orSplits.push(i);
+    }
+
+    private int handleCloseParenthesis(int i, Deque<Integer> ops, Deque<Integer> orSplits) {
+        List<Integer> orIndices = new ArrayList<>();
+        while (!ops.isEmpty() && re[ops.peek()] == '|') {
+            orIndices.add(ops.pop());
+        }
+        int lp = ops.isEmpty() ? i : ops.pop();
+        if (!orSplits.isEmpty()) {
+            orSplits.pop();
+        }
+
+        if (!orIndices.isEmpty()) {
+            processOrOperator(lp, i, orIndices);
+        }
+        return lp;
+    }
+
+    private void processOrOperator(int lp, int i, List<Integer> orIndices) {
+        List<Integer> splitPoints = new ArrayList<>();
+        splitPoints.add(lp + 1);
+        for (int or : orIndices) {
+            splitPoints.add(or + 1);
+        }
+
+        for (int start : splitPoints) {
+            states.get(lp).addEpsilonTransition(states.get(start));
+        }
+
+        int lastSplit = lp + 1;
+        for (int or : orIndices) {
+            connectStates(lastSplit, or);
+            states.get(or).addEpsilonTransition(states.get(i));
+            lastSplit = or + 1;
+        }
+        connectStates(lastSplit, i);
+    }
+
+    private void connectStates(int start, int end) {
+        for (int j = start; j < end; j++) {
+            if (isLiteralCharacter(re[j])) {
+                states.get(j).addTransition(re[j], states.get(j + 1));
+            } else {
+                states.get(j).addEpsilonTransition(states.get(j + 1));
+            }
+        }
+    }
+
+    private void handleStarOperator(int i, int lp) {
+        states.get(lp).addEpsilonTransition(states.get(i + 2));
+        states.get(i + 1).addEpsilonTransition(states.get(lp));
+    }
+
+    private void addTransitionForCurrentState(int i) {
+        if (isLiteralCharacter(re[i])) {
+            states.get(i).addTransition(re[i], states.get(i + 1));
+        } else {
+            states.get(i).addEpsilonTransition(states.get(i + 1));
+        }
+    }
+
+    private boolean isLiteralCharacter(char c) {
+        return c != '(' && c != ')' && c != '|' && c != '*';
+    }
+
+    private void finalizeAutomaton() {
+        automaton = new Automaton(states.get(0));
+        states.forEach(automaton::addState);
     }
 
     static void runTests(Automaton automaton) {
@@ -185,9 +233,7 @@ public class NKA {
 
     public static void main(String[] args) {
         System.out.println("Регулярное выражение: .*AB((C|D|E)F)*G");
-
-        Automaton automaton = buildNKA();
-
-        runTests(automaton);
+        NKA nka = new NKA(".*AB((C|D|E)F)*G");
+        runTests(nka.automaton);
     }
 }
